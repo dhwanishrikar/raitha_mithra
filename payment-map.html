@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAITHA MITHRA - Payment & Maps</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .btn {
+            padding: 15px 30px;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .map-placeholder {
+            height: 300px;
+            background: linear-gradient(45deg, #e0e0e0, #f5f5f5);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .payment-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            position: relative;
+        }
+        .payment-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: #2E7D32;
+            z-index: 1;
+        }
+        .step {
+            text-align: center;
+            z-index: 2;
+            background: white;
+            padding: 0 10px;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+        .success-message {
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- PAYMENT SECTION -->
+        <div class="section">
+            <h2><i class="fas fa-tractor"></i> RAITHA MITHRA - Book Machinery</h2>
+            
+            <div class="payment-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>Select Machinery</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>Choose Dates</div>
+                </div>
+                <div class="step">
+                    <div class="step-number" style="background: #FF9800;">3</div>
+                    <div><strong>Make Payment</strong></div>
+                </div>
+            </div>
+
+            <div style="background: #FFF3E0; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3>Booking Summary</h3>
+                <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                    <span>John Deere Tractor (2 days):</span>
+                    <span>₹2,800</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                    <span>Delivery Charges:</span>
+                    <span>₹200</span>
+                </div>
+                <hr>
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold;">
+                    <span>Total Amount:</span>
+                    <span>₹3,000</span>
+                </div>
+            </div>
+
+            <button class="btn" onclick="processPayment()">
+                <i class="fas fa-lock"></i> Pay Securely - ₹3,000
+            </button>
+
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                <h3>Payment Successful! 🎉</h3>
+                <p>Your tractor booking is confirmed</p>
+                <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+            </div>
+        </div>
+
+        <!-- MAPS PLACEHOLDER -->
+        <div class="section">
+            <h2><i class="fas fa-map-marker-alt"></i> Machinery Location</h2>
+            <div class="map-placeholder">
+                <div>
+                    <i class="fas fa-tractor" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                    <h3>Google Maps Integration</h3>
+                    <p>Machinery locations will be shown here</p>
+                    <small>Add your Google Maps API key to enable</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SIMULATED PAYMENT - WORKS WITHOUT RAZORPAY KEY
+        function processPayment() {
+            // Show loading state
+            const btn = document.querySelector('.btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Payment...';
+            btn.disabled = true;
+
+            // Simulate payment processing
+            setTimeout(() => {
+                // Simulate successful payment
+                showSuccessMessage();
+                
+                // Reset button
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 2000);
+        }
+
+        function showSuccessMessage() {
+            const bookingId = 'RM' + Date.now();
+            document.getElementById('bookingId').textContent = bookingId;
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // ACTUAL RAZORPAY INTEGRATION (COMMENTED - NEEDS REAL KEY)
+        /*
+        function processRazorpayPayment() {
+            const options = {
+                key: "rzp_test_YOUR_ACTUAL_KEY_HERE", // GET FROM RAZORPAY
+                amount: 300000, // ₹3000 in paise
+                currency: "INR",
+                name: "RAITHA MITHRA",
+                description: "Tractor Rental Booking",
+                handler: function(response) {
+                    showSuccessMessage();
+                    console.log("Payment ID:", response.razorpay_payment_id);
+                },
+                theme: { color: "#2E7D32" }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+        */
+    </script>
+</body>
+</html>

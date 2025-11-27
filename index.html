@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAITHA MITHRA - Agricultural Machinery Renting</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/auth.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hidden sections for SPA -->
+    <div id="payment-section" class="spa-section" style="display: none;">
+        <div class="container">
+            <!-- PAYMENT SECTION -->
+            <div class="section">
+                <h2><i class="fas fa-tractor"></i> RAITHA MITHRA - Book Machinery</h2>
+
+                <div class="payment-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Select Machinery</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Choose Dates</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number" style="background: #FF9800;">3</div>
+                        <div><strong>Make Payment</strong></div>
+                    </div>
+                </div>
+
+                <div style="background: #FFF3E0; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h3>Booking Summary</h3>
+                    <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                        <span id="payment-machine-name">John Deere Tractor (2 days):</span>
+                        <span id="payment-machine-cost">₹2,800</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                        <span>Delivery Charges:</span>
+                        <span id="payment-delivery-cost">₹200</span>
+                    </div>
+                    <hr>
+                    <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold;">
+                        <span>Total Amount:</span>
+                        <span id="payment-total-amount">₹3,000</span>
+                    </div>
+                </div>
+
+                <button class="btn" id="payment-btn" onclick="payment.processPayment()">
+                    <i class="fas fa-lock"></i> Pay Securely - ₹3,000
+                </button>
+
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                    <h3>Payment Successful! 🎉</h3>
+                    <p>Your tractor booking is confirmed</p>
+                    <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+                </div>
+            </div>
+
+            <!-- MAPS PLACEHOLDER -->
+            <div class="section">
+                <h2><i class="fas fa-map-marker-alt"></i> Machinery Location</h2>
+                <div class="map-placeholder">
+                    <div>
+                        <i class="fas fa-tractor" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                        <h3>Google Maps Integration</h3>
+                        <p>Machinery locations will be shown here</p>
+                        <small>Add your Google Maps API key to enable</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app">
+        <!-- App content loaded by JavaScript -->
+    </div>
+
+    <!-- Script files -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/machinery.js"></script>
+    <script src="scripts/booking.js"></script>
+    <script src="scripts/payment.js"></script>
+    <script src="scripts/maps.js"></script>
+    <script src="scripts/recommendations.js"></script>
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/landing.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
