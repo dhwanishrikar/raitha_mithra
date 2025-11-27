@@ -67,15 +67,14 @@ class LandingPageManager {
 
                             <div class="hero-stats">
                                 <div class="stat-item">
-                                    <span class="stat-number">500+</span>
                                     <span class="stat-label">Happy Farmers</span>
                                 </div>
                                 <div class="stat-item">
-                                    <span class="stat-number">1000+</span>
+                                    <span class="stat-number">100+</span>
                                     <span class="stat-label">Machinery Available</span>
                                 </div>
                                 <div class="stat-item">
-                                    <span class="stat-number">25+</span>
+                                    <span class="stat-number">10+</span>
                                     <span class="stat-label">Cities Covered</span>
                                 </div>
                             </div>
@@ -261,7 +260,7 @@ class LandingPageManager {
                     </div>
 
                     <div class="footer-bottom">
-                        <p>&copy; 2024 Raitha Mithra. All rights reserved. Made with ❤️ for Indian farmers.</p>
+                        <p>&copy; Mini Project Team 1 - 5C : Ashmith , Quadir ,Bhoomika , Dhwani</p>
                     </div>
                 </footer>
             </div>
@@ -322,3 +321,4 @@ class LandingPageManager {
 
 // Initialize landing page manager
 const landing = new LandingPageManager();
+
